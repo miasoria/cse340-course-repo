@@ -14,28 +14,45 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 /**
-  * Configure Express middleware
-  */
+ * Configure Express middleware
+ */
 
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+
+// Tell Express where to find the templates
+app.set('views', path.join(__dirname, 'src/views'));
+
 /**
-  * Routes
-  */
+ * Routes
+ */
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src/views/home.html'));
+    res.render('home', {
+        title: 'Home'
+    });
 });
 
 app.get('/organizations', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src/views/organizations.html'));
+    res.render('organizations', {
+        title: 'Our Partner Organizations'
+    });
 });
 
 app.get('/projects', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src/views/projects.html'));
+    res.render('projects', {
+        title: 'Service Projects'
+    });
 });
 
+/**
+ * Start the server
+ */
+
 app.listen(PORT, () => {
-    console.log(`Server is running at http://127.0.0.1:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
     console.log(`Environment: ${NODE_ENV}`);
 });
