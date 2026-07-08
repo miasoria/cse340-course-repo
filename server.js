@@ -36,10 +36,9 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/organizations', (req, res) => {
-    res.render('organizations', {
-        title: 'Our Partner Organizations'
-    });
+app.get('/organizations', async (req, res) => {
+    const title = 'Our Partner Organizations';
+    res.render('organizations', { title });
 });
 
 app.get('/projects', async (req, res) => {
