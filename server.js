@@ -42,10 +42,9 @@ app.get('/organizations', (req, res) => {
     });
 });
 
-app.get('/projects', (req, res) => {
-    res.render('projects', {
-        title: 'Service Projects'
-    });
+app.get('/projects', async (req, res) => {
+    const title = 'Service Projects';
+    res.render('projects', { title });
 });
 
 /**
