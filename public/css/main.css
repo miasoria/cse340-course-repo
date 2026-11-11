@@ -1,31 +1,221 @@
-html,
-body {
-    background-color: lightblue;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
+/* ========================================
+   CSE 340 - Service Network
+   Professional Responsive Stylesheet
+======================================== */
+
+/* 1. CSS Variables */
+:root {
+    --primary-color: #173b35;
+    --secondary-color: #2f6b57;
+    --accent-color: #dce9df;
+    --background-color: #f7f8f4;
+    --surface-color: #ffffff;
+    --text-color: #26332e;
+    --muted-color: #64736b;
+    --border-color: #e2e8e3;
+    --shadow: 0 4px 18px rgba(23, 59, 53, 0.08);
+}
+
+/* 2. Global Styles */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* 3. Navigation */
+nav {
+    background-color: var(--primary-color);
+    padding: 18px 24px;
+    box-shadow: var(--shadow);
+}
+
+nav ul {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #b9d9c4;
+}
+
+nav a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 5px;
+    border-radius: 2px;
+}
+
+/* 4. Main Content */
+main {
+    width: min(100% - 40px, 1000px);
+    margin: 55px auto;
+    padding: 40px;
+    background-color: var(--surface-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    flex: 1;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: var(--primary-color);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.2;
+    text-align: center;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 1.05rem;
+    color: var(--muted-color);
+}
+
+/* 5. Lists and Categories */
+main ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+main li {
+    padding: 22px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+main li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* 6. Organization Images */
+main li img {
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    height: 110px;
+    object-fit: contain;
+    margin: 0 auto 15px;
+}
+
+main li strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1.05rem;
+}
+
+/* 7. Home Page Logo */
+.main-logo {
+    display: block;
+    width: min(100%, 420px);
+    height: auto;
+    margin: 35px auto 10px;
+    object-fit: contain;
+}
+
+/* 8. Footer */
+footer {
+    margin-top: auto;
+    padding: 24px;
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+/* 9. Accessibility */
+a:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+/* 10. Responsive Design */
+@media (max-width: 600px) {
     nav {
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+        padding: 15px 12px;
+    }
 
-        li {
-            display: inline;
-            margin-right: 15px;
-        }
+    nav ul {
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
 
-        a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+    nav a {
+        font-size: 0.88rem;
+    }
 
-            &:hover {
-                color: #0066cc;
-            }
-        }
+    main {
+        width: calc(100% - 24px);
+        margin: 25px auto;
+        padding: 24px 18px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    main ul {
+        grid-template-columns: 1fr;
+    }
+
+    .main-logo {
+        width: 100%;
     }
 }
