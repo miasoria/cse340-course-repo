@@ -8,10 +8,11 @@
         <p>Explore our Service Project Categories:</p>
 
         <ul>
-            <li>Environmental</li>
-            <li>Educational</li>
-            <li>Community Service</li>
-            <li>Health and Wellness</li>
+            <% categories.forEach(category=> { %>
+                <li>
+                    <%= category.category_name %>
+                </li>
+                <% }); %>
         </ul>
     </main>
 
